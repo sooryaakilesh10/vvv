@@ -1,17 +1,16 @@
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 
-import p1 from "./assets/photo1.jpg";
-import p2 from "./assets/photo2.jpg";
-import p3 from "./assets/photo3.jpg";
-import p4 from "./assets/photo4.jpg";
-import p5 from "./assets/photo5.jpg";
-import p6 from "./assets/photo6.jpg";
+import p1 from "./assets/img1.jpeg";
+import p2 from "./assets/img2.jpeg";
+import p3 from "./assets/img3.jpeg";
+import p4 from "./assets/img4.jpeg";
+import p5 from "./assets/img5.jpeg";
 
 /* ============================================================
    CONFIGURATION — replace with your own photos in src/assets
    ============================================================ */
-const PHOTOS = [p1, p2, p3, p4, p5, p6];
-const HER_NAME = "Babe"; // ← change this to her real name! // ← change this
+const PHOTOS = [p1, p2, p3, p4, p5, p1];
+const HER_NAME = "Vinaya"; // ← change this to her real name! // ← change this
 
 /* ============================================================
    UTILS
@@ -101,13 +100,13 @@ body { background:#060209; overscroll-behavior:none; -webkit-font-smoothing:anti
 .sc { position:relative; min-height:100svh; display:flex; flex-direction:column; align-items:center; justify-content:center; overflow:hidden; scroll-snap-align:start; padding:2.5rem 1.5rem }
 
 /* TYPE */
-.eyebrow { font-family:var(--f2); font-size:.5rem; font-weight:700; letter-spacing:.5em; text-transform:uppercase; color:var(--gold); opacity:.6; margin-bottom:1.6rem }
-.display  { font-family:var(--f1); font-size:clamp(1.8rem,8vw,4.2rem); font-weight:300; line-height:1.08; color:var(--cream) }
-.display em { font-style:italic; color:var(--gold) }
-.title    { font-family:var(--f1); font-size:clamp(1.3rem,6.5vw,2.8rem); font-weight:300; line-height:1.15; text-align:center; color:var(--cream) }
-.title em { font-style:italic; color:var(--rose) }
-.prose    { font-family:var(--f4); font-size:clamp(.82rem,2.5vw,.92rem); font-weight:300; line-height:2; color:rgba(237,232,224,.6); text-align:center; max-width:300px }
-.label    { font-family:var(--f2); font-size:.48rem; letter-spacing:.38em; text-transform:uppercase; color:rgba(184,147,106,.45) }
+.eyebrow { font-family:var(--f2); font-size:.5rem; font-weight:700; letter-spacing:.5em; text-transform:uppercase; color:var(--gold); opacity:.9; margin-bottom:1.6rem; text-shadow:0 2px 10px rgba(0,0,0,0.8), 0 0 4px rgba(0,0,0,0.9) }
+.display  { font-family:var(--f1); font-size:clamp(1.8rem,8vw,4.2rem); font-weight:500; line-height:1.08; color:var(--cream); text-shadow:0 3px 15px rgba(0,0,0,0.9), 0 0 8px rgba(0,0,0,0.9) }
+.display em { font-style:italic; color:var(--gold); font-weight:700 }
+.title    { font-family:var(--f1); font-size:clamp(1.3rem,6.5vw,2.8rem); font-weight:500; line-height:1.15; text-align:center; color:var(--cream); text-shadow:0 3px 15px rgba(0,0,0,0.9), 0 0 8px rgba(0,0,0,0.9) }
+.title em { font-style:italic; color:var(--rose); font-weight:700 }
+.prose    { font-family:var(--f4); font-size:clamp(.82rem,2.5vw,.92rem); font-weight:500; line-height:2; color:rgba(237,232,224,.9); text-align:center; max-width:300px; text-shadow:0 2px 12px rgba(0,0,0,0.9), 0 0 6px rgba(0,0,0,0.9) }
+.label    { font-family:var(--f2); font-size:.48rem; letter-spacing:.38em; text-transform:uppercase; color:rgba(184,147,106,.8); font-weight:700; text-shadow:0 2px 8px rgba(0,0,0,0.9) }
 
 /* BTN */
 .btn { font-family:var(--f2); font-size:.5rem; font-weight:700; letter-spacing:.35em; text-transform:uppercase; padding:.9rem 2.4rem; background:transparent; border:1px solid rgba(184,147,106,.3); color:var(--gold); cursor:pointer; transition:all .4s; touch-action:manipulation; position:relative; overflow:hidden }
@@ -221,7 +220,7 @@ function C1({ sref }) {
   const ripsRef = useRef([]);
   const afRef = useRef();
   const [widx, setWidx] = useState(0);
-  const WORDS = ["annoying", "always hungry", "loud", "stealing my hoodies"];
+  const WORDS = ["my favorite chat buddy", "my 'online friend'", "the 'night owl'", "friend-zoning me"];
 
   useEffect(() => {
     const iv = setInterval(() => setWidx(w => (w + 1) % WORDS.length), 2400);
@@ -273,7 +272,7 @@ function C1({ sref }) {
 
       <div style={{ position: "relative", zIndex: 5, textAlign: "center", padding: "0 2rem" }}>
         <p className="eyebrow" style={{ animation: "_fadeup 1.2s .5s ease both", opacity: 0 }}>
-          the ultimate boyfriend appreciation post
+          chapter one
         </p>
         <h1 className="display" style={{ animation: "_fadeup 1.2s .8s ease both", opacity: 0, textAlign: "center", maxWidth: 360, margin: "0 auto .6rem" }}>
           You are mostly{" "}
@@ -282,7 +281,7 @@ function C1({ sref }) {
           </em>
         </h1>
         <p className="prose" style={{ animation: "_fadeup 1.2s 1.1s ease both", opacity: 0, margin: "1rem auto 0" }}>
-          A heavily biased presentation on why I tolerate you. (Move your finger!)
+          A heavily biased presentation on why you should give this 'kiddo' a chance. (Move your finger!)
         </p>
         <p className="label" style={{ marginTop: "2rem", animation: "_fadeup 1s 1.6s ease both", opacity: 0 }}>
           touch · scroll
@@ -318,9 +317,9 @@ function C2({ sref }) {
     <section ref={sref} className="sc" style={{ background: var_("--deep") }}>
       <Dust n={22} />
       <div style={{ position: "relative", zIndex: 5, textAlign: "center", width: "100%", maxWidth: 400 }}>
-        <p className="eyebrow">chapter one</p>
+        <p className="eyebrow">chapter two</p>
         <p className="title" style={{ marginBottom: "1.4rem", fontSize: "clamp(1.2rem,4vw,2rem)" }}>
-          {done ? <em>Still annoying though.</em> : "Reveal the menace"}
+          {done ? <em>Still totally worth the effort.</em> : "Reveal the one I'm trying to impress"}
         </p>
 
         <div ref={boxRef}
@@ -360,12 +359,12 @@ function C2({ sref }) {
 
           {done && (
             <div style={{ position: "absolute", bottom: 16, left: 0, right: 0, textAlign: "center", zIndex: 5 }}>
-              <p className="label" style={{ animation: "_fadeup .7s ease forwards" }}>"how did I end up here?"</p>
+              <p className="label" style={{ animation: "_fadeup .7s ease forwards" }}>"how did a 22-year-old end up here?"</p>
             </div>
           )}
         </div>
 
-        {!done && <p className="prose" style={{ marginTop: "1rem", margin: "1rem auto 0" }}>Drag right to reveal the person always eating my snacks</p>}
+        {!done && <p className="prose" style={{ marginTop: "1rem", margin: "1rem auto 0" }}>Drag right to reveal the one who just wants to be 'online friends'</p>}
       </div>
       <div className="hint"><p>scroll</p><div className="line" /></div>
     </section>
@@ -427,9 +426,9 @@ function C3({ sref }) {
     <section ref={sref} className="sc" style={{ background: "#070110" }}>
       <Dust n={20} />
       <div style={{ position: "relative", zIndex: 5, textAlign: "center", width: "100%", maxWidth: 380 }}>
-        <p className="eyebrow">chapter two</p>
+        <p className="eyebrow">chapter three</p>
         <p className="title" style={{ marginBottom: "1.2rem", fontSize: "clamp(1.2rem,4vw,2rem)" }}>
-          {done ? <em>"100% Certified Menace"</em> : "Scratch for the ugly truth"}
+          {done ? <em>"100% Certified Special Person"</em> : "Scratch to read my mind"}
         </p>
 
         <div className="scratch">
@@ -437,7 +436,7 @@ function C3({ sref }) {
           <Grade stops="linear-gradient(to top,rgba(6,2,9,.5),rgba(6,2,9,.1))" />
           <div style={{ position: "absolute", inset: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
             <p style={{ fontFamily: "var(--f3)", fontSize: "clamp(2rem,8vw,3.2rem)", color: "#fff", textShadow: "0 2px 24px rgba(0,0,0,.9)", lineHeight: 1.3, textAlign: "center", padding: "0 1rem" }}>
-              You are<br />a lot of work.
+              You are<br />worth<br />the effort.
             </p>
           </div>
           <canvas ref={canvRef} className="scratch"
@@ -449,7 +448,7 @@ function C3({ sref }) {
         </div>
 
         <p className="prose" style={{ marginTop: "1rem", margin: "1rem auto 0" }}>
-          {done ? `"Science has confirmed you are the reason I am always broke."` : `${pct}% uncovered — keep going`}
+          {done ? `"Science has confirmed age is just a number."` : `${pct}% uncovered — keep going`}
         </p>
       </div>
       <div className="hint"><p>scroll</p><div className="line" /></div>
@@ -478,9 +477,9 @@ function C4({ sref }) {
     <section ref={sref} className="sc" style={{ background: "#060108" }}>
       <Dust n={18} />
       <div style={{ position: "relative", zIndex: 5, textAlign: "center", width: "100%" }}>
-        <p className="eyebrow">chapter three</p>
+        <p className="eyebrow">chapter four</p>
         <p className="title" style={{ marginBottom: "1rem", fontSize: "clamp(1.1rem,4vw,1.9rem)" }}>
-          {done ? <em>There is the troublemaker.</em> : "Tap each tile to find the problem"}
+          {done ? <em>There she is, in all her glory.</em> : "Tap each tile to reveal her"}
         </p>
 
         <div style={{ position: "relative", width: "100%", maxWidth: 300, margin: "0 auto", borderRadius: 6, overflow: "hidden" }}>
@@ -503,7 +502,7 @@ function C4({ sref }) {
         </div>
 
         <p className="prose" style={{ marginTop: "1rem", margin: "1rem auto 0" }}>
-          {done ? `"I still question my life choices every single time."` : `${revealed.size} / ${TOTAL} revealed`}
+          {done ? `"Still rejecting my proposals, I see."` : `${revealed.size} / ${TOTAL} revealed`}
         </p>
       </div>
       <div className="hint"><p>scroll</p><div className="line" /></div>
@@ -518,9 +517,9 @@ function C4({ sref }) {
    ============================================================ */
 function C5({ sref }) {
   const WORDS = [
-    { id: "wa", label: "hangry", col: "#b8936a" },
-    { id: "de", label: "bossy", col: "#a8687a" },
-    { id: "li", label: "sleepy", col: "#8c9aaa" },
+    { id: "wa", label: "friend-zoning", col: "#b8936a" },
+    { id: "de", label: "independent", col: "#a8687a" },
+    { id: "li", label: "scared", col: "#8c9aaa" },
   ];
   const PHOTO_IDS = ["ph0", "ph1", "ph2"];
 
@@ -566,12 +565,12 @@ function C5({ sref }) {
     <section ref={sref} className="sc" style={{ background: "linear-gradient(160deg,#0c0418,#060108)" }}>
       <Dust n={24} />
       <div style={{ position: "relative", zIndex: 5, textAlign: "center", width: "100%" }}>
-        <p className="eyebrow">chapter four</p>
+        <p className="eyebrow">chapter five</p>
         <p className="title" style={{ marginBottom: ".4rem", fontSize: "clamp(1.2rem,4vw,2rem)" }}>
-          {done ? <em>Wow, you did something right.</em> : "Match these up (if you can)"}
+          {done ? <em>Wow, maybe I'm not just a kiddo.</em> : "Match these up (if you can)"}
         </p>
         <p className="prose" style={{ marginBottom: "1.4rem", margin: "0 auto 1.4rem" }}>
-          {done ? `"I am definitely the catch in this relationship."` : `${matched.size / 2} / ${pairs.length} pairs · ${moves} moves`}
+          {done ? `"See? We make a great match."` : `${matched.size / 2} / ${pairs.length} pairs · ${moves} moves`}
         </p>
 
         <div className="m-grid" style={{ gridTemplateColumns: "repeat(4,1fr)", maxWidth: 340, margin: "0 auto", gap: 7 }}>
@@ -629,9 +628,9 @@ function C6({ sref }) {
   }, []);
 
   const FRAMES = [
-    { src: PHOTOS[0], label: "refusing to pick a restaurant", depth: 2.2, rot: -4, left: "4%", top: "10%", w: 190, h: 240 },
-    { src: PHOTOS[2], label: "explaining why you need another iced coffee", depth: 1.3, rot: 2, left: "32%", top: "22%", w: 220, h: 270 },
-    { src: PHOTOS[4], label: "falling asleep 5 mins into a movie", depth: 2.8, rot: -2, left: "18%", top: "50%", w: 185, h: 230 },
+    { src: PHOTOS[0], label: "friend-zoning me at 9 PM", depth: 2.2, rot: -4, left: "4%", top: "10%", w: 190, h: 240 },
+    { src: PHOTOS[2], label: "trying to hide that you actually like me", depth: 1.3, rot: 2, left: "32%", top: "22%", w: 220, h: 270 },
+    { src: PHOTOS[4], label: "telling me 'I'm just a kiddo'", depth: 2.8, rot: -2, left: "18%", top: "50%", w: 185, h: 230 },
   ];
 
   return (
@@ -686,9 +685,9 @@ function C6({ sref }) {
       </div>
 
       <div style={{ position: "relative", zIndex: 5, textAlign: "center", padding: "1.5rem 2rem 0" }}>
-        <p className="eyebrow">chapter five</p>
+        <p className="eyebrow">chapter six</p>
         <p className="title" style={{ fontSize: "clamp(1.1rem,3.5vw,1.8rem)" }}>
-          Every angle is your <em>weirdest angle</em>
+          Every angle is your <em>best angle</em>
         </p>
         <p className="prose" style={{ margin: ".7rem auto 0" }}>
           Move or tilt · tap a portrait to read it
@@ -706,12 +705,12 @@ function C6({ sref }) {
    ============================================================ */
 function C7({ sref }) {
   const SCENES = [
-    { q: "Will you ever decide what to eat?", a: "No, you have to guess.", img: PHOTOS[4] },
-    { q: "Who is the better driver?", a: "Me, obviously.", img: PHOTOS[5] },
-    { q: "Are you going to steal my fries after saying you were not hungry?", a: "Yes. 100%.", img: PHOTOS[0] },
-    { q: "Will you admit I was right about that one thing?", a: "Literally never.", img: PHOTOS[1] },
-    { q: "Are my jokes actually funny?", a: "I only laugh out of pity.", img: PHOTOS[2] },
-    { q: "Are you stuck with me forever?", a: "Unfortunate, but yes.", img: PHOTOS[3] },
+    { q: "Am I just an online friend?", a: "No, you're much more.", img: PHOTOS[4] },
+    { q: "Are we going out to Fun Mall?", a: "Yes, my treat.", img: PHOTOS[5] },
+    { q: "Will you stop using my age against me?", a: "Yes. 100%.", img: PHOTOS[0] },
+    { q: "Did I impress you with this website?", a: "Obviously.", img: PHOTOS[1] },
+    { q: "Can we stop the 'just friends' act?", a: "Yes, I yield.", img: PHOTOS[2] },
+    { q: "Will you finally say yes?", a: "Maybe...", img: PHOTOS[3] },
   ];
 
   const [idx, setIdx] = useState(0);
@@ -745,9 +744,9 @@ function C7({ sref }) {
     <section ref={sref} className="sc" style={{ background: "#080310" }}>
       <Dust n={22} />
       <div style={{ position: "relative", zIndex: 5, textAlign: "center", width: "100%", maxWidth: 380 }}>
-        <p className="eyebrow">chapter six</p>
+        <p className="eyebrow">chapter seven</p>
         <p className="title" style={{ marginBottom: ".6rem", fontSize: "clamp(1.1rem,4vw,1.9rem)" }}>
-          {done ? <em>Sigh... okay.</em> : "Swipe to agree to my terms"}
+          {done ? <em>Sigh... okay.</em> : "Swipe to agree to a real date"}
         </p>
 
         {!done && (
@@ -785,7 +784,7 @@ function C7({ sref }) {
         {done && (
           <div style={{ animation: "_fadeup .8s ease forwards" }}>
             <p className="prose" style={{ margin: "0 auto 1.5rem" }}>
-              "I guess I am okay with keeping you around."
+              "I guess I'm okay with going on a date with a 22-year-old."
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 5, justifyContent: "center" }}>
               {SCENES.map((s, i) => (
@@ -908,12 +907,12 @@ function C8({ sref }) {
         onMouseMove={onMov} onTouchMove={e => { const cv = canvRef.current; if (!cv) return; const { x, y } = evXY(e, cv); setHov(getS(x, y, cv.width, cv.height) || null); }}
       />
       <div style={{ position: "absolute", bottom: "9%", left: 0, right: 0, textAlign: "center", zIndex: 5, padding: "0 2rem", pointerEvents: "none" }}>
-        <p className="eyebrow">chapter seven</p>
+        <p className="eyebrow">chapter eight</p>
         <p className="title" style={{ fontSize: "clamp(1.1rem,4vw,1.8rem)", marginBottom: ".4rem" }}>
-          {done ? <em>A mess, just like you.</em> : "Connect the dots"}
+          {done ? <em>Flawless. But then again, I did make it.</em> : "How to find a star"}
         </p>
         <p className="prose">
-          {done ? `"I love you, even when you are annoying."` : `Tap pairs in sequence · ${conns.length} / ${EDGES.length}`}
+          {done ? `"Admit it, I'm a genius. I literally connected the stars because I'm just that good. You're welcome for being the most talented person in your orbit (and for liking you this much)."` : `Tap pairs in sequence · ${conns.length} / ${EDGES.length}`}
         </p>
       </div>
     </section>
@@ -1006,7 +1005,7 @@ function C9({ sref }) {
         onTouchEnd={onLeave}
       />
       <div style={{ position: "absolute", bottom: "9%", left: 0, right: 0, textAlign: "center", zIndex: 5, padding: "0 2rem", pointerEvents: "none" }}>
-        <p className="eyebrow">chapter eight</p>
+        <p className="eyebrow">chapter nine</p>
         <p className="title" style={{ fontSize: "clamp(1.1rem,4vw,1.8rem)", marginBottom: ".4rem" }}>
           {touched ? <em>A literal nightmare.</em> : "Touch to multiply the problem"}
         </p>
@@ -1031,14 +1030,14 @@ function C10({ sref }) {
   const [spins, setSpins] = useState(0);
 
   const PROMISES = [
-    { t: "I get the TV remote for a week", c: "#b8936a" },
-    { t: "You admit I am the funny one", c: "#a8687a" },
-    { t: "You buy ME dinner for once", c: "#8c9aaa" },
-    { t: "I win the next argument automatically", c: "#9a7860" },
-    { t: "You have to carry the groceries", c: "#b8936a" },
-    { t: "I get to sleep on the middle of the bed", c: "#a8687a" },
-    { t: "You stop stealing my t-shirts", c: "#8c9aaa" },
-    { t: "Spin again, loser", c: "#9a7860" },
+    { t: "You accept my proposal", c: "#b8936a" },
+    { t: "We go on a real date", c: "#a8687a" },
+    { t: "No more 'online friends' talk", c: "#8c9aaa" },
+    { t: "You admit I'm not just a kiddo", c: "#9a7860" },
+    { t: "A walk in the park", c: "#b8936a" },
+    { t: "You stop rejecting me", c: "#a8687a" },
+    { t: "We hit off well", c: "#8c9aaa" },
+    { t: "Spin again, madam", c: "#9a7860" },
   ];
 
   const draw = useCallback((angle = 0) => {
@@ -1101,9 +1100,9 @@ function C10({ sref }) {
     <section ref={sref} className="sc" style={{ background: "linear-gradient(160deg,#0d0320,#06010c)" }}>
       <Dust n={26} />
       <div style={{ position: "relative", zIndex: 5, textAlign: "center" }}>
-        <p className="eyebrow">chapter nine</p>
+        <p className="eyebrow">chapter eight</p>
         <p className="title" style={{ marginBottom: ".5rem", fontSize: "clamp(1.2rem,4vw,2rem)" }}>
-          {result ? <em style={{ color: result.c }}>{result.t}</em> : "Spin for a real promise"}
+          {result ? <em style={{ color: result.c }}>{result.t}</em> : "Spin for a real date promise"}
         </p>
         <p className="prose" style={{ marginBottom: "1.4rem", margin: "0 auto 1.4rem" }}>
           {result ? `"I am definitely rigging this wheel later."` : "Every landing is something I intend to do"}
@@ -1124,16 +1123,16 @@ function C10({ sref }) {
 function C11({ sref }) {
   const ref = useRef(); const inView = useInView(ref, .25);
   const POEM = [
-    { t: "Look, I am not good at this feelings stuff,", c: "#b8936a" },
-    { t: "But I guess you are alright.", c: "#ede8e0" },
-    { t: "You are annoying, bossy, and always hungry,", c: "#a8687a" },
-    { t: "But somehow I still like you.", c: "#8c9aaa" },
-    { t: "You might be a menace to society,", c: "#b8936a" },
-    { t: "But you are MY menace.", c: "#ede8e0" },
-    { t: "So stop stealing my hoodies,", c: "#a8687a" },
-    { t: "Start deciding where we eat,", c: "#8c9aaa" },
-    { t: "And never change.", c: "#b8936a" },
-    { t: "Because you are my favorite.", c: "#f0e8dc" },
+    { t: "Look, I know I am younger,", c: "#b8936a" },
+    { t: "And you just want to be 'free',", c: "#ede8e0" },
+    { t: "But I am not giving up easily,", c: "#a8687a" },
+    { t: "Because I see something special.", c: "#8c9aaa" },
+    { t: "You might friend-zone me every day,", c: "#b8936a" },
+    { t: "But I still want to earn your liking.", c: "#ede8e0" },
+    { t: "So stop calling me a kiddo,", c: "#a8687a" },
+    { t: "Take a chance on this software engineer,", c: "#8c9aaa" },
+    { t: "And let's go on a proper date.", c: "#b8936a" },
+    { t: "Because I really value you.", c: "#f0e8dc" },
   ];
   const [li, setLi] = useState(-1), [ci, setCi] = useState(0), [typed, setTyped] = useState([]);
 
@@ -1150,7 +1149,7 @@ function C11({ sref }) {
       <div style={{ position: "absolute", inset: 0, backgroundImage: `url(${PHOTOS[5]})`, backgroundSize: "cover", backgroundPosition: "center", opacity: .05, filter: "blur(8px)" }} />
       <Dust n={20} />
       <div ref={ref} style={{ position: "relative", zIndex: 5, maxWidth: 355, padding: "0 .5rem" }}>
-        <p className="eyebrow" style={{ textAlign: "center" }}>chapter ten</p>
+        <p className="eyebrow" style={{ textAlign: "center" }}>chapter eleven</p>
         <p className="title" style={{ marginBottom: "1.8rem", fontSize: "clamp(1.1rem,4vw,1.6rem)" }}>Written only for you</p>
         <div style={{ minHeight: 280, textAlign: "left" }}>
           {typed.map((l, i) => (
@@ -1252,7 +1251,7 @@ function C12({ sref }) {
       </div>
 
       <div ref={ref} style={{ position: "relative", zIndex: 5, textAlign: "center" }}>
-        <p className="eyebrow" style={{ marginBottom: "2rem" }}>you are so needy</p>
+        <p className="eyebrow" style={{ marginBottom: "2rem" }}>chapter nine</p>
         <div style={{ fontFamily: "var(--f3)", fontSize: "clamp(3.2rem,13vw,6.5rem)", display: "flex", flexWrap: "wrap", justifyContent: "center", letterSpacing: ".04em" }}>
           {HER_NAME.split("").map((ch, i) => {
             const COLS = ["#b8936a", "#ede8e0", "#a8687a", "#8c9aaa", "#c9a96e"];
@@ -1270,7 +1269,7 @@ function C12({ sref }) {
         </div>
         {sub && (
           <p className="prose" style={{ marginTop: "2rem", animation: "_fadeup .8s ease forwards" }}>
-            Touch anywhere — everything here was made for you.
+            Everyone sees the version of you that you let them see. But I see the quiet strength, the rare kindness, and the person you are when the world isn't watching. That's the person I'm choosing, against everything else.
           </p>
         )}
       </div>
@@ -1338,11 +1337,11 @@ function C13({ sref }) {
 
   const p = clamp(phase / 5, 0, 1);
   const LINES = [
-    "Another day of me successfully putting up with you.",
-    "Another year, still have not dumped you.",
-    "Are you ever going to grow up?",
-    "I would have more money without you.",
-    "You are welcome for my presence.",
+    "Another day of me trying to get you to say yes.",
+    "Age is just a number, remember?",
+    "Stop pushing me away.",
+    "I'm not doing this just as a coping mechanism.",
+    "You are someone I don't want to lose.",
   ];
   const LC = ["#b8936a", "#ede8e0", "#a8687a", "#8c9aaa", "#c9b87a"];
 
@@ -1370,7 +1369,7 @@ function C13({ sref }) {
         onClick={onTap} onTouchStart={e => { e.preventDefault(); onTap(e); }} />
 
       <div style={{ position: "relative", zIndex: 5, textAlign: "center", padding: "2rem 1.5rem", pointerEvents: "none", marginTop: phase >= 3 ? "5rem" : "0" }}>
-        <p className="eyebrow" style={{ marginBottom: "1.8rem" }}>chapter eleven</p>
+        <p className="eyebrow" style={{ marginBottom: "1.8rem" }}>chapter ten</p>
         <div style={{ minHeight: "10rem" }}>
           {LINES.map((l, i) => (
             <p key={i} style={{
@@ -1390,7 +1389,7 @@ function C13({ sref }) {
               animation: "_glow 3.5s ease-in-out infinite", "--gc": "#b8936a",
               textShadow: "0 0 40px rgba(184,147,106,.4),0 0 90px rgba(184,147,106,.2)"
             }}>
-              Ur Aight.
+              "Say Yes?"
             </p>
           </div>
         )}
@@ -1410,10 +1409,10 @@ function C14({ sref }) {
   const ref = useRef(); const inView = useInView(ref, .18);
   const [lp, setLp] = useState(0), [open, setOpen] = useState(false), [show, setShow] = useState(false);
   const CLOSING = [
-    ["Look, I complain a lot...", "#b8936a"],
-    ["And you are definitely a handful...", "#ede8e0"],
-    ["But I probably would not trade you for anything.", "#a8687a"],
-    ["Maybe for a million dollars. Maybe. But probably not.", "#8c9aaa"],
+    ["There is a rarity in you that most people will never have the patience to find.", "#b8936a"],
+    ["I found it. And I am never letting go of the truth of who you are.", "#ede8e0"],
+    ["The world can have its opinions on age and distance. They don't matter.", "#a8687a"],
+    ["What matters is that you've become the only place that feels like home.", "#8c9aaa"],
   ];
   const ORBS = useMemo(() => Array.from({ length: 10 }, (_, i) => ({
     r: 50 + (i % 3) * 22, spd: 10 + i * 1.5, del: i * .4, os: i * 36, sz: 2 + (i % 2),
@@ -1427,11 +1426,11 @@ function C14({ sref }) {
   }, [inView]);
 
   const PARAS = [
-    "If you are reading this, congrats on making it through my very nerdy, highly sarcastic website without getting mad.",
-    "I just wanted an excuse to roast you a bit and remind you that despite all the hoodie-stealing and indecisiveness, you are my favorite.",
-    "I love all our inside jokes, our late night talks, and every random stupid thing we do together.",
-    "I am so excited for everything that comes next for us. Whatever it is, as long as we are a team, I know it is going to be amazing.",
-    "This is just a digital love letter to say: you are the best girlfriend a guy could ever ask for.",
+    "Life doesn't often give us something this real. Usually, people are just passing through, looking for a distraction or a way to fill the silence. But with you, the silence is where I finally found myself.",
+    "I know you're independent for a reason. I know you've built walls because you've had to. I'm not here to tear them down—I'm here to build a world with you that makes those walls unnecessary.",
+    "Choosing you isn't a romantic whim. It's the most mature decision I've ever made. It's a recognition of the fact that a soul like yours doesn't come around twice.",
+    "So don't be afraid of the 'what ifs'. Don't let the noise of the world drown out the certainty of what we have. I am here. I am certain. And I am yours, completely.",
+    "This isn't just a website, Vinaya. It's a promise that I see you, I value you, and I am ready for everything that comes next. - Soorya",
   ];
 
   return (
@@ -1461,7 +1460,7 @@ function C14({ sref }) {
       </div>
 
       <div ref={ref} style={{ position: "relative", zIndex: 5, textAlign: "center", maxWidth: 335 }}>
-        <p className="eyebrow" style={{ marginBottom: "1.5rem" }}>chapter fourteen</p>
+        <p className="eyebrow" style={{ marginBottom: "1.5rem" }}>chapter thirteen</p>
         {CLOSING.map(([l, c], i) => (
           <p key={i} style={{
             fontFamily: "var(--f4)", fontStyle: "italic", fontWeight: 300,
@@ -1476,7 +1475,7 @@ function C14({ sref }) {
         {show && !open && (
           <button className="btn" style={{ marginTop: "2.5rem", animation: "_fadeup .8s ease forwards" }}
             onClick={() => { scatter(window.innerWidth / 2, window.innerHeight * .72, "#b8936a", 14); setOpen(true); }}>
-            one last thing
+            The heart of the matter
           </button>
         )}
 
@@ -1592,7 +1591,7 @@ function CDrawKaleido({ sref }) {
         onMouseDown={onDown} onMouseMove={onMove} onMouseUp={onUp} onMouseLeave={onUp}
         onTouchStart={onDown} onTouchMove={onMove} onTouchEnd={onUp} />
       <div style={{ position: "absolute", bottom: "8%", left: 0, right: 0, textAlign: "center", zIndex: 5, pointerEvents: "none", opacity: hasDrawn ? 0 : 1, transition: "opacity 1s" }}>
-        <p className="eyebrow" style={{ textShadow: "0 2px 10px #000" }}>chapter twelve</p>
+        <p className="eyebrow" style={{ textShadow: "0 2px 10px #000" }}>chapter eleven</p>
         <p className="title" style={{ textShadow: "0 2px 10px #000" }}>Draw our universe</p>
         <p className="prose" style={{ textShadow: "0 2px 10px #000" }}>Touch and move to paint</p>
       </div>
@@ -1607,10 +1606,10 @@ function CJokes({ sref }) {
   const [idx, setIdx] = useState(0);
   const [showPunch, setShowPunch] = useState(false);
   const JOKES = [
-    { q: "Are you a magician?", a: "Because whenever I look at you, everyone else disappears." },
-    { q: "Do you have a map?", a: "I keep getting lost in your eyes." },
-    { q: "Are you a WiFi router?", a: "Because I'm feeling a connection." },
-    { q: "Is your name Google?", a: "Because you have everything I’m searching for." },
+    { q: "Are you a magician?", a: "Because whenever I look at you, the 6 year age gap disappears." },
+    { q: "Do you have a map?", a: "Because I keep getting lost trying to get out of the friendzone." },
+    { q: "Are you my age limit?", a: "Because you keep turning me off and I want to connect." },
+    { q: "Is your name Google?", a: "Because you have everything I’m searching for in an 'online friend'." },
     { q: "Are you a parking ticket?", a: "Because you've got FINE written all over you." },
   ];
 
@@ -1627,7 +1626,7 @@ function CJokes({ sref }) {
     <section ref={sref} className="sc" style={{ background: "#110818", textAlign: "center" }}>
       <Dust n={15} />
       <div style={{ position: "relative", zIndex: 5, maxWidth: 380, width: "100%" }}>
-        <p className="eyebrow">chapter thirteen</p>
+        <p className="eyebrow">chapter twelve</p>
         <p className="title" style={{ marginBottom: "2rem" }}>Because we're deeply unserious</p>
 
         <div onClick={nextJoke} style={{ background: "rgba(184,147,106,0.08)", padding: "2rem", borderRadius: "12px", cursor: "pointer", minHeight: 200, display: "flex", flexDirection: "column", justifyContent: "center" }}>
@@ -1649,7 +1648,7 @@ function CJokes({ sref }) {
 /* ============================================================
    APP SHELL
    ============================================================ */
-const CHAPTERS = [C1, C2, C3, C4, C5, C6, C7, C8, C9, C10, C11, C12, C13, CDrawKaleido, CJokes, C14];
+const CHAPTERS = [C1, C2, C3, C4, C5, C6, C7, C10, C12, C13, CDrawKaleido, CJokes, C14];
 
 function Wrapper({ Sec, idx, onView, holder }) {
   const ref = useRef(null);
