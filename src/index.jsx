@@ -264,7 +264,7 @@ function C1({ sref }) {
 
   return (
     <section ref={sref} className="sc" style={{ padding: 0, cursor: "crosshair" }}
-      onMouseMove={addRip} onTouchMove={e => { e.preventDefault(); addRip(e); }} onTouchStart={addRip}>
+      onMouseMove={addRip} onTouchMove={addRip} onTouchStart={addRip}>
       <div className="photo-bg grain" style={{ backgroundImage: `url(${PHOTOS[0]})` }} />
       <Grade stops="linear-gradient(to bottom,rgba(6,2,9,.3) 0%,rgba(6,2,9,.55) 100%)" />
       <Vignette strength={.8} />
@@ -323,7 +323,7 @@ function C2({ sref }) {
         </p>
 
         <div ref={boxRef}
-          style={{ position: "relative", width: "100%", height: 360, borderRadius: 6, overflow: "hidden", touchAction: "none", cursor: "ew-resize" }}
+          style={{ position: "relative", width: "100%", height: 360, borderRadius: 6, overflow: "hidden", touchAction: "pan-y", cursor: "ew-resize" }}
           onMouseDown={() => dragging.current = true} onMouseMove={move}
           onMouseUp={() => dragging.current = false} onMouseLeave={() => dragging.current = false}
           onTouchStart={() => dragging.current = true} onTouchMove={move} onTouchEnd={() => dragging.current = false}
@@ -407,7 +407,7 @@ function C3({ sref }) {
   }, []);
 
   const doScratch = useCallback(e => {
-    if (!painting.current) return; e.preventDefault();
+    if (!painting.current) return;
     const cv = canvRef.current; if (!cv) return;
     const { x, y } = evXY(e, cv);
     const ctx = cv.getContext("2d");
@@ -440,7 +440,7 @@ function C3({ sref }) {
             </p>
           </div>
           <canvas ref={canvRef} className="scratch"
-            style={{ width: "100%", height: 280, display: "block", position: "relative", zIndex: 3, touchAction: "none" }}
+            style={{ width: "100%", height: 280, display: "block", position: "relative", zIndex: 3, touchAction: "pan-y" }}
             onMouseDown={() => painting.current = true} onMouseMove={doScratch}
             onMouseUp={() => painting.current = false} onMouseLeave={() => painting.current = false}
             onTouchStart={() => painting.current = true} onTouchMove={doScratch} onTouchEnd={() => painting.current = false}
@@ -876,7 +876,6 @@ function C8({ sref }) {
   const getS = useCallback((x, y, W, H) => STARS.find(s => Math.hypot(s.x * W - x, s.y * H - y) < 25), [STARS]);
 
   const tap = useCallback(e => {
-    e.preventDefault();
     const cv = canvRef.current; if (!cv) return;
     const { x, y } = evXY(e, cv), r = cv.getBoundingClientRect();
     const s = getS(x, y, cv.width, cv.height);
@@ -902,7 +901,7 @@ function C8({ sref }) {
     <section ref={sref} className="sc" style={{ padding: 0, background: "#04010b" }}>
       <div style={{ position: "absolute", inset: 0, backgroundImage: `url(${PHOTOS[4]})`, backgroundSize: "cover", backgroundPosition: "center", opacity: .07, filter: "blur(5px)" }} />
       <canvas ref={canvRef}
-        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", touchAction: "none", cursor: "crosshair", zIndex: 3 }}
+        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", touchAction: "pan-y", cursor: "crosshair", zIndex: 3 }}
         onClick={tap} onTouchStart={tap}
         onMouseMove={onMov} onTouchMove={e => { const cv = canvRef.current; if (!cv) return; const { x, y } = evXY(e, cv); setHov(getS(x, y, cv.width, cv.height) || null); }}
       />
@@ -973,7 +972,6 @@ function C9({ sref }) {
   }, []);
 
   const onTap = useCallback(e => {
-    e.preventDefault();
     const cv = canvRef.current; if (!cv) return;
     const { x, y } = evXY(e, cv);
     ptRef.current = { x: x / cv.width, y: y / cv.height };
@@ -999,9 +997,9 @@ function C9({ sref }) {
   return (
     <section ref={sref} className="sc" style={{ padding: 0, background: "#04010b" }}>
       <canvas ref={canvRef}
-        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", touchAction: "none", cursor: "crosshair", zIndex: 2 }}
+        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", touchAction: "pan-y", cursor: "crosshair", zIndex: 2 }}
         onClick={onTap} onMouseMove={onMov} onMouseLeave={onLeave}
-        onTouchStart={onTap} onTouchMove={e => { e.preventDefault(); const cv = canvRef.current; if (!cv) return; const { x, y } = evXY(e, cv); ptRef.current = { x: x / cv.width, y: y / cv.height }; if (intRef.current > .01) intRef.current = Math.min(intRef.current + .01, 1); }}
+        onTouchStart={onTap} onTouchMove={e => { const cv = canvRef.current; if (!cv) return; const { x, y } = evXY(e, cv); ptRef.current = { x: x / cv.width, y: y / cv.height }; if (intRef.current > .01) intRef.current = Math.min(intRef.current + .01, 1); }}
         onTouchEnd={onLeave}
       />
       <div style={{ position: "absolute", bottom: "9%", left: 0, right: 0, textAlign: "center", zIndex: 5, padding: "0 2rem", pointerEvents: "none" }}>
@@ -1328,7 +1326,6 @@ function C13({ sref }) {
   }
 
   const onTap = useCallback(e => {
-    e.preventDefault();
     const cv = canvRef.current; if (!cv) return;
     const { x, y } = evXY(e, cv); fireAt(x, y);
     const r = cv.getBoundingClientRect();
@@ -1365,8 +1362,8 @@ function C13({ sref }) {
       )}
 
       <canvas ref={canvRef}
-        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", touchAction: "none", cursor: "crosshair", zIndex: 2 }}
-        onClick={onTap} onTouchStart={e => { e.preventDefault(); onTap(e); }} />
+        style={{ position: "absolute", inset: 0, width: "100%", height: "100%", touchAction: "pan-y", cursor: "crosshair", zIndex: 2 }}
+        onClick={onTap} onTouchStart={onTap} />
 
       <div style={{ position: "relative", zIndex: 5, textAlign: "center", padding: "2rem 1.5rem", pointerEvents: "none", marginTop: phase >= 3 ? "5rem" : "0" }}>
         <p className="eyebrow" style={{ marginBottom: "1.8rem" }}>chapter ten</p>
@@ -1558,14 +1555,12 @@ function CDrawKaleido({ sref }) {
   };
 
   const onDown = (e) => {
-    e.preventDefault();
     painting.current = true;
     const { x, y } = evXY(e, canvRef.current);
     lastPt.current = { x, y };
   };
   const onMove = (e) => {
     if (!painting.current) return;
-    e.preventDefault();
     if (!hasDrawn) setHasDrawn(true);
     const { x, y } = evXY(e, canvRef.current);
     drawLine(lastPt.current.x, lastPt.current.y, x, y);
@@ -1587,7 +1582,7 @@ function CDrawKaleido({ sref }) {
           <p className="prose" style={{ margin: "0.5rem 0 0 0" }}>Drag around to draw!</p>
         </div>
       )}
-      <canvas ref={canvRef} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", touchAction: "none", cursor: "crosshair", zIndex: 2 }}
+      <canvas ref={canvRef} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", touchAction: "pan-y", cursor: "crosshair", zIndex: 2 }}
         onMouseDown={onDown} onMouseMove={onMove} onMouseUp={onUp} onMouseLeave={onUp}
         onTouchStart={onDown} onTouchMove={onMove} onTouchEnd={onUp} />
       <div style={{ position: "absolute", bottom: "8%", left: 0, right: 0, textAlign: "center", zIndex: 5, pointerEvents: "none", opacity: hasDrawn ? 0 : 1, transition: "opacity 1s" }}>
