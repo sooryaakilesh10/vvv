@@ -236,7 +236,7 @@ function C1({ sref }) {
   const ripsRef = useRef([]);
   const afRef = useRef();
   const [widx, setWidx] = useState(0);
-  const WORDS = ["my dream girl", "the one I admire", "my favorite person", "the girl I want"];
+  const WORDS = ["a pretty cool person", "someone I like", "a great match", "genuinely fun"];
 
   useEffect(() => {
     const iv = setInterval(() => setWidx(w => (w + 1) % WORDS.length), 2400);
@@ -380,7 +380,7 @@ function C2({ sref }) {
           )}
         </div>
 
-        {!done && <p className="prose" style={{ marginTop: "1rem", margin: "1rem auto 0" }}>Drag right to reveal the girl who stole my heart</p>}
+        {!done && <p className="prose" style={{ marginTop: "1rem", margin: "1rem auto 0" }}>Drag right to reveal someone I really like</p>}
       </div>
       <div className="hint"><p>scroll</p><div className="line" /></div>
     </section>
@@ -644,7 +644,7 @@ function C6({ sref }) {
   }, []);
 
   const FRAMES = [
-    { src: PHOTOS[0], label: "stealing my heart at 9 PM", depth: 2.2, rot: -4, left: "4%", top: "10%", w: 190, h: 240 },
+    { src: PHOTOS[0], label: "making me smile at 9 PM", depth: 2.2, rot: -4, left: "4%", top: "10%", w: 190, h: 240 },
     { src: PHOTOS[2], label: "trying to hide that you actually like me", depth: 1.3, rot: 2, left: "32%", top: "22%", w: 220, h: 270 },
     { src: PHOTOS[4], label: "telling me I'm special", depth: 2.8, rot: -2, left: "18%", top: "50%", w: 185, h: 230 },
   ];
@@ -721,12 +721,12 @@ function C6({ sref }) {
    ============================================================ */
 function C7({ sref }) {
   const SCENES = [
-    { q: "Do you know how special you are?", a: "Because to me, you're everything.", img: PHOTOS[4] },
-    { q: "Are we going out to Fun Mall?", a: "Yes, my treat.", img: PHOTOS[5] },
-    { q: "Will you stop being so mysterious?", a: "Yes. 100%.", img: PHOTOS[0] },
-    { q: "Did I impress you with this website?", a: "Obviously.", img: PHOTOS[1] },
-    { q: "Will you be my girlfriend?", a: "Yes, I'd love to.", img: PHOTOS[2] },
-    { q: "Will you finally say yes?", a: "Maybe...", img: PHOTOS[3] },
+    { q: "You doing okay?", a: "Looks like it.", img: PHOTOS[4] },
+    { q: "Fun Mall trip?", a: "Maybe.", img: PHOTOS[5] },
+    { q: "Still mysterious?", a: "Always.", img: PHOTOS[0] },
+    { q: "Website looking good?", a: "Not bad.", img: PHOTOS[1] },
+    { q: "Good match?", a: "Seems so.", img: PHOTOS[2] },
+    { q: "Ready to say yes?", a: "Sure.", img: PHOTOS[3] },
   ];
 
   const [idx, setIdx] = useState(0);
@@ -762,7 +762,7 @@ function C7({ sref }) {
       <div style={{ position: "relative", zIndex: 5, textAlign: "center", width: "100%", maxWidth: 380 }}>
         <p className="eyebrow">chapter seven</p>
         <p className="title" style={{ marginBottom: ".6rem", fontSize: "clamp(1.1rem,4vw,1.9rem)" }}>
-          {done ? <em>Sigh... okay.</em> : "Swipe to agree to meet me in person"}
+          {done ? <em>Alright, let's do it.</em> : "Swipe to agree"}
         </p>
 
         {!done && (
@@ -791,7 +791,7 @@ function C7({ sref }) {
 
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
               <p className="label">{idx + 1} / {SCENES.length}</p>
-              <button className="btn" onClick={advance}>Yes, always</button>
+              <button className="btn" onClick={advance}>Agree</button>
               <p className="label">tap or swipe</p>
             </div>
           </>
@@ -800,7 +800,7 @@ function C7({ sref }) {
         {done && (
           <div style={{ animation: "_fadeup .8s ease forwards" }}>
             <p className="prose" style={{ margin: "0 auto 1.5rem" }}>
-              "I guess I'm ready to finally meet you in person."
+              "Cool, let's meet up then."
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 5, justifyContent: "center" }}>
               {SCENES.map((s, i) => (
@@ -924,10 +924,10 @@ function C8({ sref }) {
       <div style={{ position: "absolute", bottom: "9%", left: 0, right: 0, textAlign: "center", zIndex: 5, padding: "0 2rem", pointerEvents: "none" }}>
         <p className="eyebrow">chapter eight</p>
         <p className="title" style={{ fontSize: "clamp(1.1rem,4vw,1.8rem)", marginBottom: ".4rem" }}>
-          {done ? <em>Flawless. But then again, I did make it.</em> : "How to find a star"}
+          {done ? <em>Nice work.</em> : "Connect the dots"}
         </p>
         <p className="prose">
-          {done ? `"Admit it, I'm a genius. I literally connected the stars because I'm just that good. You're welcome for being the most talented person in your orbit (and for liking you this much)."` : `Tap pairs in sequence · ${conns.length} / ${EDGES.length}`}
+          {done ? `"See? Easy."` : `Tap pairs in sequence · ${conns.length} / ${EDGES.length}`}
         </p>
       </div>
     </section>
@@ -1021,10 +1021,10 @@ function C9({ sref }) {
       <div style={{ position: "absolute", bottom: "9%", left: 0, right: 0, textAlign: "center", zIndex: 5, padding: "0 2rem", pointerEvents: "none" }}>
         <p className="eyebrow">chapter nine</p>
         <p className="title" style={{ fontSize: "clamp(1.1rem,4vw,1.8rem)", marginBottom: ".4rem" }}>
-          {touched ? <em>A literal nightmare.</em> : "Touch to multiply the problem"}
+          {touched ? <em>Whoa.</em> : "Touch to mess it up"}
         </p>
         <p className="prose">
-          {touched ? `"Imagine a billion of you... my wallet is crying."` : "Tap and move — her portrait multiplies into infinity"}
+          {touched ? `"A bit much, right?"` : "Tap and move — watch it go weird"}
         </p>
       </div>
       <div className="hint" style={{ zIndex: 6 }}><p>scroll</p><div className="line" /></div>
@@ -1044,14 +1044,14 @@ function C10({ sref }) {
   const [spins, setSpins] = useState(0);
 
   const PROMISES = [
-    { t: "You accept my proposal", c: "#b8936a" },
-    { t: "We finally meet in person", c: "#a8687a" },
-    { t: "Late night texting forever", c: "#8c9aaa" },
-    { t: "You admit you like my vibe", c: "#9a7860" },
-    { t: "Hearing your voice for real", c: "#b8936a" },
-    { t: "You stop rejecting me", c: "#a8687a" },
-    { t: "We hit off well", c: "#8c9aaa" },
-    { t: "Spin again, madam", c: "#9a7860" },
+    { t: "Hang out soon", c: "#b8936a" },
+    { t: "Meet up", c: "#a8687a" },
+    { t: "Text more", c: "#8c9aaa" },
+    { t: "Be fun", c: "#9a7860" },
+    { t: "Chat later", c: "#b8936a" },
+    { t: "Get closer", c: "#a8687a" },
+    { t: "Hit it off", c: "#8c9aaa" },
+    { t: "Spin again", c: "#9a7860" },
   ];
 
   const draw = useCallback((angle = 0) => {
@@ -1116,10 +1116,10 @@ function C10({ sref }) {
       <div style={{ position: "relative", zIndex: 5, textAlign: "center" }}>
         <p className="eyebrow">chapter eight</p>
         <p className="title" style={{ marginBottom: ".5rem", fontSize: "clamp(1.2rem,4vw,2rem)" }}>
-          {result ? <em style={{ color: result.c }}>{result.t}</em> : "Spin for a promise when we meet"}
+          {result ? <em style={{ color: result.c }}>{result.t}</em> : "Spin for a plan"}
         </p>
         <p className="prose" style={{ marginBottom: "1.4rem", margin: "0 auto 1.4rem" }}>
-          {result ? `"I am definitely rigging this wheel later."` : "Every landing is something I intend to do"}
+          {result ? `"Sounds good."` : "Spin it."}
         </p>
         <canvas ref={canvRef} style={{ width: 260, height: 260, display: "block", margin: "0 auto 1.4rem" }} />
         <button className="btn" onClick={spin} disabled={spinning}>
@@ -1137,12 +1137,12 @@ function C10({ sref }) {
 function C11({ sref }) {
   const ref = useRef(); const inView = useInView(ref, .25);
   const POEM = [
-    { t: "You are the light I never knew I was looking for,", c: "#b8936a" },
-    { t: "And the only one my heart wants.", c: "#ede8e0" },
-    { t: "Every second with you feels like a dream,", c: "#a8687a" },
-    { t: "And I don't ever want to wake up.", c: "#8c9aaa" },
-    { t: "Be mine, Lakshmi.", c: "#b8936a" },
-    { t: "Because I am completely in love with you. ♡", c: "#f0e8dc" },
+    { t: "Glad we started talking,", c: "#b8936a" },
+    { t: "You're fun to be around.", c: "#ede8e0" },
+    { t: "Good match, for sure,", c: "#a8687a" },
+    { t: "Nice getting to know you.", c: "#8c9aaa" },
+    { t: "So let's see where this goes, Lakshmi.", c: "#b8936a" },
+    { t: "Like you a lot.", c: "#f0e8dc" },
   ];
   const [li, setLi] = useState(-1), [ci, setCi] = useState(0), [typed, setTyped] = useState([]);
 
@@ -1349,11 +1349,11 @@ function C13({ sref }) {
 
   const p = clamp(phase / 5, 0, 1);
   const LINES = [
-    "Another day of me hoping you smile reading this.",
-    "I cherish everything about you.",
-    "Every firework here is lit for you, Lakshmi.",
-    "I built this just so you'd feel how much you mean to me.",
-    "You are someone I never want to lose. ♡",
+    "Just a little something to make you smile.",
+    "I'm glad we met.",
+    "These fireworks are for you, Lakshmi.",
+    "I think you're pretty cool.",
+    "Let's see where this goes. ✨",
   ];
   const LC = ["#b8936a", "#ede8e0", "#a8687a", "#8c9aaa", "#c9b87a"];
 
@@ -1401,7 +1401,7 @@ function C13({ sref }) {
               animation: "_glow 3.5s ease-in-out infinite", "--gc": "#b8936a",
               textShadow: "0 0 40px rgba(184,147,106,.4),0 0 90px rgba(184,147,106,.2)"
             }}>
-              "Say Yes?"
+              "Match?"
             </p>
           </div>
         )}
@@ -1421,10 +1421,10 @@ function C14({ sref }) {
   const ref = useRef(); const inView = useInView(ref, .18);
   const [lp, setLp] = useState(0), [open, setOpen] = useState(false), [show, setShow] = useState(false);
   const CLOSING = [
-    ["There is a rarity in you that most people will never have the patience to find.", "#b8936a"],
-    ["I found it. And I am never letting go of the truth of who you are.", "#ede8e0"],
-    ["The world can have its opinions on how we met. They don't matter.", "#a8687a"],
-    ["What matters is that you've become the only place that feels like home.", "#8c9aaa"],
+    ["I'm really glad we connected.", "#b8936a"],
+    ["You're definitely someone special to me.", "#ede8e0"],
+    ["I've enjoyed every conversation so far.", "#a8687a"],
+    ["I think we're a really good match.", "#8c9aaa"],
   ];
   const ORBS = useMemo(() => Array.from({ length: 10 }, (_, i) => ({
     r: 50 + (i % 3) * 22, spd: 10 + i * 1.5, del: i * .4, os: i * 36, sz: 2 + (i % 2),
@@ -1438,10 +1438,10 @@ function C14({ sref }) {
   }, [inView]);
 
   const PARAS = [
-    "I'm so glad we met.",
-    "I really enjoy every moment we spend talking.",
-    "I like you, Lakshmi, more than just words can say.",
-    "This website is my simple way of saying I want you in my life. - Soorya"
+    "I'm really glad we started talking.",
+    "I genuinely enjoy getting to know you.",
+    "I think you are a great match.",
+    "I just really like you. - Soorya"
   ];
 
   return (
@@ -1486,7 +1486,7 @@ function C14({ sref }) {
         {show && !open && (
           <button className="btn" style={{ marginTop: "2.5rem", animation: "_fadeup .8s ease forwards" }}
             onClick={() => { scatter(window.innerWidth / 2, window.innerHeight * .72, "#b8936a", 14); setOpen(true); }}>
-            The heart of the matter
+            A little something
           </button>
         )}
 
@@ -1502,7 +1502,7 @@ function C14({ sref }) {
               animation: "_fadeup .8s 1.1s ease both", opacity: 0,
               textShadow: "0 0 18px rgba(184,147,106,.28)"
             }}>
-              — with love, always
+              — yours truly
             </p>
           </div>
         )}
