@@ -27,18 +27,34 @@ function evXY(e, el) {
 }
 
 function scatter(cx, cy, color, n = 14) {
+  const EMOJIS = ["♡", "✨", "💖", "🌸", "⭐"];
   for (let i = 0; i < n; i++) {
     const el = document.createElement("div");
     const angle = (i / n) * TAU + rnd(-0.3, 0.3);
     const dist = rnd(24, 68);
-    const size = rnd(2, 6);
-    el.style.cssText = `
-      position:fixed;left:${cx}px;top:${cy}px;
-      width:${size}px;height:${size}px;border-radius:50%;
-      background:${color};pointer-events:none;z-index:9999;
-      animation:_sc .9s ${i * 0.025}s ease-out forwards;
-      --sx:${Math.cos(angle) * dist}px;--sy:${Math.sin(angle) * dist}px;
-    `;
+    
+    if (Math.random() > 0.6) {
+      const emoji = EMOJIS[Math.floor(Math.random() * EMOJIS.length)];
+      const size = rnd(14, 24);
+      el.innerText = emoji;
+      el.style.cssText = `
+        position:fixed;left:${cx - size/2}px;top:${cy - size/2}px;
+        font-size:${size}px; color:${color}; text-shadow: 0 0 8px ${color};
+        pointer-events:none;z-index:9999;
+        animation:_sc .9s ${i * 0.025}s ease-out forwards;
+        --sx:${Math.cos(angle) * dist}px;--sy:${Math.sin(angle) * dist}px;
+      `;
+    } else {
+      const size = rnd(2, 6);
+      el.style.cssText = `
+        position:fixed;left:${cx}px;top:${cy}px;
+        width:${size}px;height:${size}px;border-radius:50%;
+        background:${color};box-shadow: 0 0 5px ${color};
+        pointer-events:none;z-index:9999;
+        animation:_sc .9s ${i * 0.025}s ease-out forwards;
+        --sx:${Math.cos(angle) * dist}px;--sy:${Math.sin(angle) * dist}px;
+      `;
+    }
     document.body.appendChild(el);
     setTimeout(() => el.remove(), 1050);
   }
@@ -1316,11 +1332,14 @@ function C13({ sref }) {
   const COLS = ["#b8936a", "#a8687a", "#8c9aaa", "#ede8e0", "#c9b87a", "#9a8058"];
   function fireAt(x, y) {
     const base = COLS[Math.floor(Math.random() * COLS.length)];
-    for (let i = 0; i < 52; i++) {
-      const a = rnd(0, TAU), spd = rnd(1.5, 6.5);
+    for (let i = 0; i < 60; i++) {
+      const t = rnd(0, TAU);
+      const hx = Math.pow(Math.sin(t), 3);
+      const hy = -(13 * Math.cos(t) - 5 * Math.cos(2 * t) - 2 * Math.cos(3 * t) - Math.cos(4 * t)) / 16;
+      const spd = rnd(2.5, 6.5);
       ptsRef.current.push({
-        x, y, vx: Math.cos(a) * spd, vy: Math.sin(a) * spd - rnd(.5, 2.5),
-        c: Math.random() > .35 ? base : "rgba(255,255,255,.8)", r: rnd(1.5, 5), life: rnd(900, 2100), born: Date.now()
+        x, y, vx: hx * spd, vy: hy * spd - rnd(.5, 2.5),
+        c: Math.random() > .35 ? base : "rgba(255,255,255,.8)", r: rnd(1.5, 5), life: rnd(1000, 2200), born: Date.now()
       });
     }
   }
@@ -1564,8 +1583,11 @@ function CDrawKaleido({ sref }) {
     if (!hasDrawn) setHasDrawn(true);
     const { x, y } = evXY(e, canvRef.current);
     drawLine(lastPt.current.x, lastPt.current.y, x, y);
+    if (Math.random() < 0.15) {
+      scatter(x, y, `hsl(${hue}, 80%, 65%)`, 2);
+    }
     lastPt.current = { x, y };
-    setHue(h => (h + 3) % 360);
+    setHue(h => (h + 5) % 360);
   };
   const onUp = () => { painting.current = false; };
 
@@ -1582,9 +1604,21 @@ function CDrawKaleido({ sref }) {
           <p className="prose" style={{ margin: "0.5rem 0 0 0" }}>Drag around to draw!</p>
         </div>
       )}
-      <canvas ref={canvRef} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", touchAction: "pan-y", cursor: "crosshair", zIndex: 2 }}
+      <canvas ref={canvRef} style={{ position: "absolute", inset: 0, width: "100%", height: "100%", touchAction: "none", cursor: "crosshair", zIndex: 2 }}
         onMouseDown={onDown} onMouseMove={onMove} onMouseUp={onUp} onMouseLeave={onUp}
         onTouchStart={onDown} onTouchMove={onMove} onTouchEnd={onUp} />
+      
+      {hasDrawn && (
+        <div style={{ position: "absolute", bottom: "4%", left: "50%", transform: "translateX(-50%)", zIndex: 10, animation: "_fadeup 1s ease forwards" }}>
+          <button className="btn" onClick={(e) => {
+            const nextSec = e.currentTarget.closest('section').nextElementSibling;
+            if (nextSec) nextSec.scrollIntoView({ behavior: 'smooth' });
+          }} style={{ background: "rgba(10,4,16,0.9)", fontSize: "0.6rem", padding: "1rem 2rem", width: "max-content" }}>
+            Keep Scrolling ↓
+          </button>
+        </div>
+      )}
+
       <div style={{ position: "absolute", bottom: "8%", left: 0, right: 0, textAlign: "center", zIndex: 5, pointerEvents: "none", opacity: hasDrawn ? 0 : 1, transition: "opacity 1s" }}>
         <p className="eyebrow" style={{ textShadow: "0 2px 10px #000" }}>chapter eleven</p>
         <p className="title" style={{ textShadow: "0 2px 10px #000" }}>Draw our universe</p>
