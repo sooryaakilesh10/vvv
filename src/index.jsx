@@ -236,7 +236,7 @@ function C1({ sref }) {
   const ripsRef = useRef([]);
   const afRef = useRef();
   const [widx, setWidx] = useState(0);
-  const WORDS = ["my favorite chat buddy", "my 'online friend'", "the 'night owl'", "friend-zoning me"];
+  const WORDS = ["my dream girl", "the one I admire", "my favorite person", "the girl I want"];
 
   useEffect(() => {
     const iv = setInterval(() => setWidx(w => (w + 1) % WORDS.length), 2400);
@@ -380,7 +380,7 @@ function C2({ sref }) {
           )}
         </div>
 
-        {!done && <p className="prose" style={{ marginTop: "1rem", margin: "1rem auto 0" }}>Drag right to reveal the one who just wants to be 'online friends'</p>}
+        {!done && <p className="prose" style={{ marginTop: "1rem", margin: "1rem auto 0" }}>Drag right to reveal the girl who stole my heart</p>}
       </div>
       <div className="hint"><p>scroll</p><div className="line" /></div>
     </section>
@@ -533,7 +533,7 @@ function C4({ sref }) {
    ============================================================ */
 function C5({ sref }) {
   const WORDS = [
-    { id: "wa", label: "friend-zoning", col: "#b8936a" },
+    { id: "wa", label: "beautiful", col: "#b8936a" },
     { id: "de", label: "independent", col: "#a8687a" },
     { id: "li", label: "scared", col: "#8c9aaa" },
   ];
@@ -644,7 +644,7 @@ function C6({ sref }) {
   }, []);
 
   const FRAMES = [
-    { src: PHOTOS[0], label: "friend-zoning me at 9 PM", depth: 2.2, rot: -4, left: "4%", top: "10%", w: 190, h: 240 },
+    { src: PHOTOS[0], label: "stealing my heart at 9 PM", depth: 2.2, rot: -4, left: "4%", top: "10%", w: 190, h: 240 },
     { src: PHOTOS[2], label: "trying to hide that you actually like me", depth: 1.3, rot: 2, left: "32%", top: "22%", w: 220, h: 270 },
     { src: PHOTOS[4], label: "telling me I'm special", depth: 2.8, rot: -2, left: "18%", top: "50%", w: 185, h: 230 },
   ];
@@ -721,11 +721,11 @@ function C6({ sref }) {
    ============================================================ */
 function C7({ sref }) {
   const SCENES = [
-    { q: "Am I just an online friend?", a: "No, you're much more.", img: PHOTOS[4] },
+    { q: "Do you know how special you are?", a: "Because to me, you're everything.", img: PHOTOS[4] },
     { q: "Are we going out to Fun Mall?", a: "Yes, my treat.", img: PHOTOS[5] },
     { q: "Will you stop being so mysterious?", a: "Yes. 100%.", img: PHOTOS[0] },
     { q: "Did I impress you with this website?", a: "Obviously.", img: PHOTOS[1] },
-    { q: "Can we stop the 'just friends' act?", a: "Yes, I yield.", img: PHOTOS[2] },
+    { q: "Will you be my girlfriend?", a: "Yes, I'd love to.", img: PHOTOS[2] },
     { q: "Will you finally say yes?", a: "Maybe...", img: PHOTOS[3] },
   ];
 
@@ -762,7 +762,7 @@ function C7({ sref }) {
       <div style={{ position: "relative", zIndex: 5, textAlign: "center", width: "100%", maxWidth: 380 }}>
         <p className="eyebrow">chapter seven</p>
         <p className="title" style={{ marginBottom: ".6rem", fontSize: "clamp(1.1rem,4vw,1.9rem)" }}>
-          {done ? <em>Sigh... okay.</em> : "Swipe to agree to a real date"}
+          {done ? <em>Sigh... okay.</em> : "Swipe to agree to meet me in person"}
         </p>
 
         {!done && (
@@ -800,7 +800,7 @@ function C7({ sref }) {
         {done && (
           <div style={{ animation: "_fadeup .8s ease forwards" }}>
             <p className="prose" style={{ margin: "0 auto 1.5rem" }}>
-              "I guess I'm okay with going on a date with a 22-year-old."
+              "I guess I'm ready to finally meet you in person."
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 5, justifyContent: "center" }}>
               {SCENES.map((s, i) => (
@@ -1045,10 +1045,10 @@ function C10({ sref }) {
 
   const PROMISES = [
     { t: "You accept my proposal", c: "#b8936a" },
-    { t: "We go on a real date", c: "#a8687a" },
-    { t: "No more 'online friends' talk", c: "#8c9aaa" },
+    { t: "We finally meet in person", c: "#a8687a" },
+    { t: "Late night texting forever", c: "#8c9aaa" },
     { t: "You admit you like my vibe", c: "#9a7860" },
-    { t: "A walk in the park", c: "#b8936a" },
+    { t: "Hearing your voice for real", c: "#b8936a" },
     { t: "You stop rejecting me", c: "#a8687a" },
     { t: "We hit off well", c: "#8c9aaa" },
     { t: "Spin again, madam", c: "#9a7860" },
@@ -1116,7 +1116,7 @@ function C10({ sref }) {
       <div style={{ position: "relative", zIndex: 5, textAlign: "center" }}>
         <p className="eyebrow">chapter eight</p>
         <p className="title" style={{ marginBottom: ".5rem", fontSize: "clamp(1.2rem,4vw,2rem)" }}>
-          {result ? <em style={{ color: result.c }}>{result.t}</em> : "Spin for a real date promise"}
+          {result ? <em style={{ color: result.c }}>{result.t}</em> : "Spin for a promise when we meet"}
         </p>
         <p className="prose" style={{ marginBottom: "1.4rem", margin: "0 auto 1.4rem" }}>
           {result ? `"I am definitely rigging this wheel later."` : "Every landing is something I intend to do"}
@@ -1137,16 +1137,12 @@ function C10({ sref }) {
 function C11({ sref }) {
   const ref = useRef(); const inView = useInView(ref, .25);
   const POEM = [
-    { t: "You have a beautiful smile,", c: "#b8936a" },
-    { t: "That brightens up my day.", c: "#ede8e0" },
-    { t: "You bring so much joy,", c: "#a8687a" },
-    { t: "In your own unique way.", c: "#8c9aaa" },
-    { t: "Every moment with you,", c: "#b8936a" },
-    { t: "Feels perfectly right.", c: "#ede8e0" },
-    { t: "I cherish our connection,", c: "#a8687a" },
-    { t: "With all of my might.", c: "#8c9aaa" },
-    { t: "So take a chance on us, Lakshmi,", c: "#b8936a" },
-    { t: "Because I really, truly love you. ♡", c: "#f0e8dc" },
+    { t: "You are the light I never knew I was looking for,", c: "#b8936a" },
+    { t: "And the only one my heart wants.", c: "#ede8e0" },
+    { t: "Every second with you feels like a dream,", c: "#a8687a" },
+    { t: "And I don't ever want to wake up.", c: "#8c9aaa" },
+    { t: "Be mine, Lakshmi.", c: "#b8936a" },
+    { t: "Because I am completely in love with you. ♡", c: "#f0e8dc" },
   ];
   const [li, setLi] = useState(-1), [ci, setCi] = useState(0), [typed, setTyped] = useState([]);
 
@@ -1446,7 +1442,7 @@ function C14({ sref }) {
     "I know you're independent for a reason. I know you've built walls because you've had to. I'm not here to tear them down—I'm here to build a world with you that makes those walls unnecessary.",
     "Choosing you isn't a romantic whim. It's the most mature decision I've ever made. It's a recognition of the fact that a soul like yours doesn't come around twice.",
     "So don't be afraid of the 'what ifs'. Don't let the noise of the world drown out the certainty of what we have. I am here. I am certain. And I am yours, completely.",
-    "This isn't just a website, Lakshmi. It's a promise that I see you, I value you, and I am ready for everything that comes next. - Soorya",
+    "This isn't just a website, Lakshmi. It's a promise that even though we haven't met yet, I see you, I value you, and I am ready for everything that comes next. - Soorya",
   ];
 
   return (
@@ -1636,9 +1632,9 @@ function CJokes({ sref }) {
   const [showPunch, setShowPunch] = useState(false);
   const JOKES = [
     { q: "Are you a magician?", a: "Because whenever I look at you, everything else disappears." },
-    { q: "Do you have a map?", a: "Because I keep getting lost trying to get out of the friendzone." },
+    { q: "Are you a Wi-Fi signal?", a: "Because I'm feeling a really strong connection with you." },
     { q: "Are you my favorite song?", a: "Because you keep turning me off and I want to connect." },
-    { q: "Is your name Google?", a: "Because you have everything I’m searching for in an 'online friend'." },
+    { q: "Is your name Google?", a: "Because you have everything I’m searching for." },
     { q: "Are you a parking ticket?", a: "Because you've got FINE written all over you." },
   ];
 
