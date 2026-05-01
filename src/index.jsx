@@ -10,7 +10,7 @@ import p5 from "./assets/img5.jpeg";
    CONFIGURATION — replace with your own photos in src/assets
    ============================================================ */
 const PHOTOS = [p1, p2, p3, p4, p5, p1];
-const HER_NAME = "Vinaya"; // ← change this to her real name! // ← change this
+const HER_NAME = "Lakshmi"; // ← change this to her real name! // ← change this
 
 /* ============================================================
    UTILS
@@ -281,7 +281,7 @@ function C1({ sref }) {
           </em>
         </h1>
         <p className="prose" style={{ animation: "_fadeup 1.2s 1.1s ease both", opacity: 0, margin: "1rem auto 0" }}>
-          A heavily biased presentation on why you should give this 'kiddo' a chance. (Move your finger!)
+          A heavily biased presentation on why you mean so much to my world. (Move your finger!)
         </p>
         <p className="label" style={{ marginTop: "2rem", animation: "_fadeup 1s 1.6s ease both", opacity: 0 }}>
           touch · scroll
@@ -359,7 +359,7 @@ function C2({ sref }) {
 
           {done && (
             <div style={{ position: "absolute", bottom: 16, left: 0, right: 0, textAlign: "center", zIndex: 5 }}>
-              <p className="label" style={{ animation: "_fadeup .7s ease forwards" }}>"how did a 22-year-old end up here?"</p>
+              <p className="label" style={{ animation: "_fadeup .7s ease forwards" }}>"how did someone so amazing end up here?"</p>
             </div>
           )}
         </div>
@@ -448,7 +448,7 @@ function C3({ sref }) {
         </div>
 
         <p className="prose" style={{ marginTop: "1rem", margin: "1rem auto 0" }}>
-          {done ? `"Science has confirmed age is just a number."` : `${pct}% uncovered — keep going`}
+          {done ? `"Science has confirmed you are one of a kind."` : `${pct}% uncovered — keep going`}
         </p>
       </div>
       <div className="hint"><p>scroll</p><div className="line" /></div>
@@ -567,7 +567,7 @@ function C5({ sref }) {
       <div style={{ position: "relative", zIndex: 5, textAlign: "center", width: "100%" }}>
         <p className="eyebrow">chapter five</p>
         <p className="title" style={{ marginBottom: ".4rem", fontSize: "clamp(1.2rem,4vw,2rem)" }}>
-          {done ? <em>Wow, maybe I'm not just a kiddo.</em> : "Match these up (if you can)"}
+          {done ? <em>Wow, maybe I'm exactly who you need.</em> : "Match these up (if you can)"}
         </p>
         <p className="prose" style={{ marginBottom: "1.4rem", margin: "0 auto 1.4rem" }}>
           {done ? `"See? We make a great match."` : `${matched.size / 2} / ${pairs.length} pairs · ${moves} moves`}
@@ -630,7 +630,7 @@ function C6({ sref }) {
   const FRAMES = [
     { src: PHOTOS[0], label: "friend-zoning me at 9 PM", depth: 2.2, rot: -4, left: "4%", top: "10%", w: 190, h: 240 },
     { src: PHOTOS[2], label: "trying to hide that you actually like me", depth: 1.3, rot: 2, left: "32%", top: "22%", w: 220, h: 270 },
-    { src: PHOTOS[4], label: "telling me 'I'm just a kiddo'", depth: 2.8, rot: -2, left: "18%", top: "50%", w: 185, h: 230 },
+    { src: PHOTOS[4], label: "telling me I'm special", depth: 2.8, rot: -2, left: "18%", top: "50%", w: 185, h: 230 },
   ];
 
   return (
@@ -707,7 +707,7 @@ function C7({ sref }) {
   const SCENES = [
     { q: "Am I just an online friend?", a: "No, you're much more.", img: PHOTOS[4] },
     { q: "Are we going out to Fun Mall?", a: "Yes, my treat.", img: PHOTOS[5] },
-    { q: "Will you stop using my age against me?", a: "Yes. 100%.", img: PHOTOS[0] },
+    { q: "Will you stop being so mysterious?", a: "Yes. 100%.", img: PHOTOS[0] },
     { q: "Did I impress you with this website?", a: "Obviously.", img: PHOTOS[1] },
     { q: "Can we stop the 'just friends' act?", a: "Yes, I yield.", img: PHOTOS[2] },
     { q: "Will you finally say yes?", a: "Maybe...", img: PHOTOS[3] },
@@ -1031,7 +1031,7 @@ function C10({ sref }) {
     { t: "You accept my proposal", c: "#b8936a" },
     { t: "We go on a real date", c: "#a8687a" },
     { t: "No more 'online friends' talk", c: "#8c9aaa" },
-    { t: "You admit I'm not just a kiddo", c: "#9a7860" },
+    { t: "You admit you like my vibe", c: "#9a7860" },
     { t: "A walk in the park", c: "#b8936a" },
     { t: "You stop rejecting me", c: "#a8687a" },
     { t: "We hit off well", c: "#8c9aaa" },
@@ -1121,16 +1121,16 @@ function C10({ sref }) {
 function C11({ sref }) {
   const ref = useRef(); const inView = useInView(ref, .25);
   const POEM = [
-    { t: "Look, I know I am younger,", c: "#b8936a" },
-    { t: "And you just want to be 'free',", c: "#ede8e0" },
-    { t: "But I am not giving up easily,", c: "#a8687a" },
-    { t: "Because I see something special.", c: "#8c9aaa" },
-    { t: "You might friend-zone me every day,", c: "#b8936a" },
-    { t: "But I still want to earn your liking.", c: "#ede8e0" },
-    { t: "So stop calling me a kiddo,", c: "#a8687a" },
-    { t: "Take a chance on this software engineer,", c: "#8c9aaa" },
-    { t: "And let's go on a proper date.", c: "#b8936a" },
-    { t: "Because I really value you.", c: "#f0e8dc" },
+    { t: "You have a beautiful smile,", c: "#b8936a" },
+    { t: "That brightens up my day.", c: "#ede8e0" },
+    { t: "You bring so much joy,", c: "#a8687a" },
+    { t: "In your own unique way.", c: "#8c9aaa" },
+    { t: "Every moment with you,", c: "#b8936a" },
+    { t: "Feels perfectly right.", c: "#ede8e0" },
+    { t: "I cherish our connection,", c: "#a8687a" },
+    { t: "With all of my might.", c: "#8c9aaa" },
+    { t: "So take a chance on us, Lakshmi,", c: "#b8936a" },
+    { t: "Because I really, truly love you. ♡", c: "#f0e8dc" },
   ];
   const [li, setLi] = useState(-1), [ci, setCi] = useState(0), [typed, setTyped] = useState([]);
 
@@ -1334,11 +1334,11 @@ function C13({ sref }) {
 
   const p = clamp(phase / 5, 0, 1);
   const LINES = [
-    "Another day of me trying to get you to say yes.",
-    "Age is just a number, remember?",
-    "Stop pushing me away.",
-    "I'm not doing this just as a coping mechanism.",
-    "You are someone I don't want to lose.",
+    "Another day of me hoping you smile reading this.",
+    "I cherish everything about you.",
+    "Every firework here is lit for you, Lakshmi.",
+    "I built this just so you'd feel how much you mean to me.",
+    "You are someone I never want to lose. ♡",
   ];
   const LC = ["#b8936a", "#ede8e0", "#a8687a", "#8c9aaa", "#c9b87a"];
 
@@ -1408,7 +1408,7 @@ function C14({ sref }) {
   const CLOSING = [
     ["There is a rarity in you that most people will never have the patience to find.", "#b8936a"],
     ["I found it. And I am never letting go of the truth of who you are.", "#ede8e0"],
-    ["The world can have its opinions on age and distance. They don't matter.", "#a8687a"],
+    ["The world can have its opinions on how we met. They don't matter.", "#a8687a"],
     ["What matters is that you've become the only place that feels like home.", "#8c9aaa"],
   ];
   const ORBS = useMemo(() => Array.from({ length: 10 }, (_, i) => ({
@@ -1427,7 +1427,7 @@ function C14({ sref }) {
     "I know you're independent for a reason. I know you've built walls because you've had to. I'm not here to tear them down—I'm here to build a world with you that makes those walls unnecessary.",
     "Choosing you isn't a romantic whim. It's the most mature decision I've ever made. It's a recognition of the fact that a soul like yours doesn't come around twice.",
     "So don't be afraid of the 'what ifs'. Don't let the noise of the world drown out the certainty of what we have. I am here. I am certain. And I am yours, completely.",
-    "This isn't just a website, Vinaya. It's a promise that I see you, I value you, and I am ready for everything that comes next. - Soorya",
+    "This isn't just a website, Lakshmi. It's a promise that I see you, I value you, and I am ready for everything that comes next. - Soorya",
   ];
 
   return (
@@ -1601,9 +1601,9 @@ function CJokes({ sref }) {
   const [idx, setIdx] = useState(0);
   const [showPunch, setShowPunch] = useState(false);
   const JOKES = [
-    { q: "Are you a magician?", a: "Because whenever I look at you, the 6 year age gap disappears." },
+    { q: "Are you a magician?", a: "Because whenever I look at you, everything else disappears." },
     { q: "Do you have a map?", a: "Because I keep getting lost trying to get out of the friendzone." },
-    { q: "Are you my age limit?", a: "Because you keep turning me off and I want to connect." },
+    { q: "Are you my favorite song?", a: "Because you keep turning me off and I want to connect." },
     { q: "Is your name Google?", a: "Because you have everything I’m searching for in an 'online friend'." },
     { q: "Are you a parking ticket?", a: "Because you've got FINE written all over you." },
   ];
