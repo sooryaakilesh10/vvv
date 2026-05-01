@@ -1438,11 +1438,10 @@ function C14({ sref }) {
   }, [inView]);
 
   const PARAS = [
-    "Life doesn't often give us something this real. Usually, people are just passing through, looking for a distraction or a way to fill the silence. But with you, the silence is where I finally found myself.",
-    "I know you're independent for a reason. I know you've built walls because you've had to. I'm not here to tear them down—I'm here to build a world with you that makes those walls unnecessary.",
-    "Choosing you isn't a romantic whim. It's the most mature decision I've ever made. It's a recognition of the fact that a soul like yours doesn't come around twice.",
-    "So don't be afraid of the 'what ifs'. Don't let the noise of the world drown out the certainty of what we have. I am here. I am certain. And I am yours, completely.",
-    "This isn't just a website, Lakshmi. It's a promise that even though we haven't met yet, I see you, I value you, and I am ready for everything that comes next. - Soorya",
+    "I'm so glad we met.",
+    "I really enjoy every moment we spend talking.",
+    "I like you, Lakshmi, more than just words can say.",
+    "This website is my simple way of saying I want you in my life. - Soorya"
   ];
 
   return (
